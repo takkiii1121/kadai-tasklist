@@ -1,9 +1,11 @@
 <h1>タスク作成ページ</h1>
 
-<%= form_with(model: @task, local: true) do |f| %>
-<%= f.label :content, 'タスク' %>
-<%= f.text_field :content %>
-<%= f.submit '保存' %>
+<!--<%= form_with(model: @task, local: true) do |f| %>-->
+<!--<%= f.label :content, 'タスク' %>-->
+<!--<%= f.text_field :content %>-->
+<!--<%= f.submit '保存' %>-->
+
+<%= render 'form', task: @task %>
 
 <% end %>
 
