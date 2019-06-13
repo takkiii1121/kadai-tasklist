@@ -1,5 +1,7 @@
 class TasksController < ApplicationController
     before_action :set_task, only: [:show, :edit, :update, :destroy]
+    before_action :require_user_logged_in, only: [:index, :show]
+    
     def index
         @tasks = Task.all
     end
@@ -18,7 +20,7 @@ class TasksController < ApplicationController
         
         if @task.save
             flash[:success] = 'Taskが正常に保存されました'
-            redirect_to @task
+            redirect_to root_url
         else
             flash.now[:danger] = 'Taskが保存されませんでした'
             render :new
